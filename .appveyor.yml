@@ -34,7 +34,7 @@ install:
   - set PATH=%PYTHONHOME%;%PYTHONHOME%\scripts;%PYTHONHOME%\tools\scripts;%PATH%
   - cd C:\projects\devrider
   - curl -L -fsS -o devrider.tar.gz https://github.com/namuan/dev-rider/archive/%BUILD_VERSION%.tar.gz
-  - 7z -x devrider.tar.gz
+  - 7z x devrider.tar.gz
   - mv dev-rider-%BUILD_VERSION%/* .
   - rm -rf devrider.tar.gz dev-rider-%BUILD_VERSION%
 
