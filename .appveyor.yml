@@ -51,7 +51,8 @@ install:
   # Freezing w/ PyInstaller
   - cd C:\\projects\\devrider\\pyinstaller
   - call build.pyinstaller.win.bat 64 %PFX_PASSWORD%
-  - 7z a -tzip devrider-%BUILD_VERSION%.zip dist\devrider.exe -mx0
+  - cd ..
+  - 7z a -tzip devrider-%BUILD_VERSION%.zip pyinstaller\\dist\devrider.exe -mx0
   - dir
   - appveyor PushArtifact devrider-%BUILD_VERSION%.zip
   # - cd ..\InnoSetup\Output
