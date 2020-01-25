@@ -36,6 +36,7 @@ install:
   - curl -L -fsS -o devrider.tar.gz https://github.com/namuan/dev-rider/archive/%BUILD_VERSION%.tar.gz
   - 7z x .\\devrider.tar.gz
   - 7z x .\\devrider.tar
+  - dir
   - cd .\\dev-rider-%BUILD_VERSION%
   
   # Installing latest pip + setuptools + dependencies
@@ -47,7 +48,7 @@ install:
   - call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
   - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   # Freezing w/ PyInstaller
-  - cd .\\pyinstaller
+  - cd C:\\projects\\devrider\\pyinstaller
   - call build.pyinstaller.win.bat 64 %PFX_PASSWORD%
   - cd ..\InnoSetup\Output
   - appveyor PushArtifact DevRider-0.1.0-setup-win64.exe
