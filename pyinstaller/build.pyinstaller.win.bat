@@ -20,4 +20,3 @@ if ["%ARCH%"]==["64"] (
     SET PYPATH=C:\Python36-x64
 )
 
-"%PYPATH%\python.exe" --version
