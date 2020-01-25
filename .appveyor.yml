@@ -34,7 +34,6 @@ install:
   - cd C:\projects\devrider
   # Installing latest pip + setuptools + dependencies
   - "%PYTHON%\\python.exe -m pip install -U pip setuptools"
-  - "%PYTHON%\\python.exe -m pip install -r requirements\\build.txt"
   - "%PYTHON%\\python.exe -m pip install -r requirements\\base.txt"
   # Setting up libmpv build subfolders...
   - mkdir "_build\pyinstaller\temp"
