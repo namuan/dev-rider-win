@@ -9,9 +9,3 @@ if [%1]==[] (
     SET ARCH=%1
 )
 
-if [%2]==[] (
-    goto :usage
-) else (
-    SET PASS=%2
-)
-
