@@ -52,7 +52,7 @@ install:
   # Freezing w/ PyInstaller
   - cd C:\\projects\\devrider\\pyinstaller
   - call build.pyinstaller.win.bat 64 %PFX_PASSWORD%
-  - dir
+  - appveyor PushArtifact dist\devrider.exe
   # - cd ..\InnoSetup\Output
   # - appveyor PushArtifact DevRider-0.1.0-setup-win64.exe
   # - appveyor exit
