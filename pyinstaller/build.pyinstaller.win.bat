@@ -31,9 +31,12 @@ if not exist "..\..\bin\" ( mkdir ..\..\bin\ ) else ( del /q ..\..\bin\*.* )
 REM ......................run pyinstaller......................
 "%PYPATH%\scripts\pyinstaller.exe" --clean devrider.win%ARCH%.spec
 
+REM ......................add metadata to built Windows binary......................
+.\verpatch.exe dist\devrider.exe /va %APPVER%.0 /pv %APPVER%.0 /s desc "DevRider" /s name "DevRider" /s copyright "(c) 2019 DR" /s product "DevRider %BINARCH%" /s company "deskriders.dev"
+
 if exist "dist\devrider.exe" (
     REM ......................add metadata to built Windows binary......................
-    .\verpatch.exe dist\devrider.exe /va %APPVER%.0 /pv %APPVER%.0 /s desc "DevRider" /s name "DevRider" /s copyright "(c) 2019 DR" /s product "DevRider %BINARCH%" /s company "deskriders.dev"
+    REM .\verpatch.exe dist\devrider.exe /va %APPVER%.0 /pv %APPVER%.0 /s desc "DevRider" /s name "DevRider" /s copyright "(c) 2019 DR" /s product "DevRider %BINARCH%" /s company "deskriders.dev"
 
     REM ................sign frozen EXE with self-signed certificate..........
     SignTool.exe sign /f "..\certs\DevRider.pfx" /t http://timestamp.comodoca.com/authenticode /p %PASS% dist\devrider.exe
