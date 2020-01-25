@@ -38,7 +38,9 @@ install:
   - 7z x .\\devrider.tar
   - rm .\\devrider.tar
   - rm .\\devrider.tar.gz
+  - cd .\\dev-rider-%BUILD_VERSION%
   - dir
+  - cd ..
   - mv .\\dev-rider-%BUILD_VERSION%\\* .
   
   # Installing latest pip + setuptools + dependencies
