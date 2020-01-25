@@ -31,7 +31,7 @@ environment:
 install:
   # ---------------------------------------- 64-bit build ----------------------------------------
 
-  - set PATH=%PYTHONHOME%;%PYTHONHOME%\scripts;%PYTHONHOME%\tools\scripts;%PATH%
+  - set PATH=%PYTHONHOME%;%PYTHONHOME%\Scripts;%PYTHONHOME%\tools\scripts;%PATH%
   - cd C:\projects\devrider
   - curl -L -fsS -o devrider.tar.gz https://github.com/namuan/dev-rider/archive/%BUILD_VERSION%.tar.gz
   - 7z x .\\devrider.tar.gz
