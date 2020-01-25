@@ -9,6 +9,8 @@ branches:
 
 skip_non_tags: false
 
+skip_tags: true
+
 image: Visual Studio 2015
 
 shallow_clone: true
@@ -68,7 +70,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: qUFnrgAfsyPKWtP1gMPZHpv2KXLqQDosCrt3cZVG7ZlVpALn4yn7Y4WwWo4xhI3E
-  artifact: dist\devrider.exe
+  artifact: dist\devrider.exe      
   draft: false
   prerelease: false
   on:
