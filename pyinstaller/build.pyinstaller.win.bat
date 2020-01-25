@@ -15,8 +15,3 @@ if [%2]==[] (
     SET PASS=%2
 )
 
-if ["%ARCH%"]==["64"] (
-    SET BINARCH=x64
-    SET PYPATH=C:\Python36-x64
-)
-
