@@ -52,8 +52,9 @@ install:
   - cd C:\\projects\\devrider\\pyinstaller
   - call build.pyinstaller.win.bat 64 %PFX_PASSWORD%
   - cd ..
-  - 7z a -tzip devrider-%BUILD_VERSION%.zip pyinstaller\\dist\devrider.exe -mx0
+  - move pyinstaller\dist\DevRider.exe .
   - dir
+  - 7z a -tzip devrider-%BUILD_VERSION%.zip devrider.exe -mx0
   - appveyor PushArtifact devrider-%BUILD_VERSION%.zip
   # - cd ..\InnoSetup\Output
   # - appveyor PushArtifact DevRider-0.1.0-setup-win64.exe
