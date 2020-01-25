@@ -36,10 +36,10 @@ install:
   - set PATH=%PYTHONHOME%;%PYTHONHOME%\Scripts;%PYTHONHOME%\tools\scripts;%PATH%
   - cd C:\projects\devrider
   - curl -L -fsS -o devrider.tar.gz https://github.com/namuan/dev-rider/archive/%BUILD_VERSION%.tar.gz
-  - 7z x .\\devrider.tar.gz
-  - 7z x .\\devrider.tar
-  - move .\\dev-rider-%BUILD_VERSION% devrider
-  - cd .\\devrider
+  - 7z x devrider.tar.gz
+  - 7z x devrider.tar
+  - move dev-rider-%BUILD_VERSION% devrider
+  - cd devrider
   
   # Installing latest pip + dependencies
   - "%PYTHON%\\python.exe -m pip install -U pip"
@@ -48,17 +48,16 @@ install:
   # Setup build environment for MSVC++
   - call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
   - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
+
   # Freezing w/ PyInstaller
-  - cd C:\\projects\\devrider\\pyinstaller
+  - cd C:\projects\devrider\pyinstaller
   - call build.pyinstaller.win.bat 64 %PFX_PASSWORD%
   - cd ..
   - move pyinstaller\dist\DevRider.exe .
+
+  # Building artifact
   - 7z a -tzip devrider-%BUILD_VERSION%.zip devrider.exe -mx0
-  # - cd C:\projects\devrider
   - appveyor PushArtifact devrider-%BUILD_VERSION%.zip
-  # - cd ..\InnoSetup\Output
-  # - appveyor PushArtifact DevRider-0.1.0-setup-win64.exe
-  # - appveyor exit
 
 nuget:
   disable_publish_on_pr: true
