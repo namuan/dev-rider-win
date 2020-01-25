@@ -49,7 +49,7 @@ install:
   - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
   # Freezing w/ PyInstaller
   - cd C:\\projects\\devrider\\pyinstaller
-  - call build.pyinstaller.win.bat 64 %PFX_PASSWORD%
+  - call build.pyinstaller.win.bat 64 Abcd1345
   - cd ..\InnoSetup\Output
   - appveyor PushArtifact DevRider-0.1.0-setup-win64.exe
   - appveyor exit
