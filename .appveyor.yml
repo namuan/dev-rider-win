@@ -36,14 +36,14 @@ install:
   - curl -L -fsS -o devrider.tar.gz https://github.com/namuan/dev-rider/archive/%BUILD_VERSION%.tar.gz
   - 7z x .\\devrider.tar.gz
   - 7z x .\\devrider.tar
+  - move .\\dev-rider-%BUILD_VERSION% devrider
   - dir
-  - cd .\\dev-rider-%BUILD_VERSION%
+  - cd .\\devrider
   
   # Installing latest pip + setuptools + dependencies
-  - "%PYTHON%\\python.exe -m pip install -U pip setuptools"
+  - "%PYTHON%\\python.exe -m pip install -U pip setuptools PyInstaller>=3.6"
   - "%PYTHON%\\python.exe -m pip install -r requirements\\base.txt"
   
-  - mkdir "_build\pyinstaller\temp"
   # Setup build environment for MSVC++
   - call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
   - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64

@@ -7,7 +7,7 @@ import PyQt5
 
 block_cipher = None
 
-a = Analysis(['..\\..\\devrider\\bin\\app.py'],
+a = Analysis(['..\\..\\devrider\\bin\\app'],
              pathex=[
                   os.path.join(sys.modules['PyQt5'].__path__[0], 'Qt', 'bin'),
                   'C:\\Program Files (x86)\\Windows Kits\\10\\Redist\\ucrt\\DLLs\\x64',
@@ -15,7 +15,7 @@ a = Analysis(['..\\..\\devrider\\bin\\app.py'],
              ],
              binaries=[],
              datas=[
-                 ('..\\..\\devrider\\codegen', './codegen')
+                 ('..\\devrider\\codegen', './codegen')
              ],
              hiddenimports=[],
              hookspath=[],
@@ -24,8 +24,10 @@ a = Analysis(['..\\..\\devrider\\bin\\app.py'],
              win_no_prefer_redirects=False,
              win_private_assemblies=False,
              cipher=block_cipher)
+
 pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
+
 exe = EXE(pyz,
           a.scripts,
           a.binaries,
@@ -35,4 +37,4 @@ exe = EXE(pyz,
           debug=False,
           strip=False,
           upx=False,
-          console=False , icon='..\\..\\resources\\icons\\devrider.ico')
+          console=False , icon='..\\devrider\\resources\\icons\\devrider.ico')
