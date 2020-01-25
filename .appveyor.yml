@@ -19,11 +19,7 @@ clone_depth: 1
 
 clone_folder: C:\projects\devrider
 
-build: off
-
 environment:
-  PFX_PASSWORD:
-    secure: ND6GzCbQh+RsdxMPaXF+WA==
   APPVEYOR_SKIP_FINALIZE_ON_EXIT: false
   PYTHONUNBUFFERED: 1
   BUILD_VERSION: "0.1.0"
@@ -54,7 +50,8 @@ install:
   # Freezing w/ PyInstaller
   - cd C:\\projects\\devrider\\pyinstaller
   - call build.pyinstaller.win.bat 64 %PFX_PASSWORD%
-  - appveyor PushArtifact dist\devrider.exe
+  - 7z a -tzip devrider-%BUILD_VERSION%.zip dist\devrider.exe -mx0
+  # - appveyor PushArtifact dist\devrider.exe
   # - cd ..\InnoSetup\Output
   # - appveyor PushArtifact DevRider-0.1.0-setup-win64.exe
   # - appveyor exit
@@ -70,7 +67,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: qUFnrgAfsyPKWtP1gMPZHpv2KXLqQDosCrt3cZVG7ZlVpALn4yn7Y4WwWo4xhI3E
-  artifact: dist\devrider.exe      
+  artifact: devrider-$(BUILD_VERSION).zip
   draft: false
   prerelease: false
   on:
