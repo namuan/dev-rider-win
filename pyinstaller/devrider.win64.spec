@@ -11,7 +11,7 @@ a = Analysis(['..\\devrider\\bin\\app'],
              pathex=[
                   os.path.join(sys.modules['PyQt5'].__path__[0], 'Qt', 'bin'),
                   'C:\\Program Files (x86)\\Windows Kits\\10\\Redist\\ucrt\\DLLs\\x64',
-                 '..\\..'
+                 '..\\devrider'
              ],
              binaries=[],
              datas=[
