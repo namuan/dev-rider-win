@@ -32,23 +32,23 @@ REM ......................run pyinstaller......................
 "%PYPATH%\scripts\pyinstaller.exe" --clean devrider.win%ARCH%.spec
 
 REM ......................add metadata to built Windows binary......................
-.\verpatch.exe dist\devrider.exe /va 1.0.0
+.\verpatch.exe dist\devrider.exe /va %APPVER%.0
 
 if exist "dist\devrider.exe" (
     REM ......................add metadata to built Windows binary......................
     REM .\verpatch.exe dist\devrider.exe /va %APPVER%.0 /pv %APPVER%.0 /s desc "DevRider" /s name "DevRider" /s copyright "(c) 2019 DR" /s product "DevRider %BINARCH%" /s company "deskriders.dev"
 
     REM ................sign frozen EXE with self-signed certificate..........
-    SignTool.exe sign /f "..\certs\DevRider.pfx" /t http://timestamp.comodoca.com/authenticode /p %PASS% dist\devrider.exe
+    REM SignTool.exe sign /f "..\certs\DevRider.pfx" /t http://timestamp.comodoca.com/authenticode /p %PASS% dist\devrider.exe
 
     REM ......................call Inno Setup installer build script......................
-     cd ..\InnoSetup
-    "C:\Program Files (x86)\Inno Setup 5\iscc.exe" installer_%BINARCH%.iss
+    REM cd ..\InnoSetup
+    REM "C:\Program Files (x86)\Inno Setup 5\iscc.exe" installer_%BINARCH%.iss
 
     REM ................sign final redistributable EXE with self-signed certificate..........
-    SignTool.exe sign /f "..\certs\DevRider.pfx" /t http://timestamp.comodoca.com/authenticode /p %PASS% output\DevRider-%APPVER%-setup-win%ARCH%.exe
+    REM SignTool.exe sign /f "..\certs\DevRider.pfx" /t http://timestamp.comodoca.com/authenticode /p %PASS% output\DevRider-%APPVER%-setup-win%ARCH%.exe
 
-    cd ..\pyinstaller
+    REM cd ..\pyinstaller
 )
 
 endlocal
