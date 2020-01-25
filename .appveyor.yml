@@ -42,9 +42,9 @@ install:
   - dir
   - cd .\\devrider
   
-  # Installing latest pip + setuptools + dependencies
-  - "%PYTHON%\\python.exe -m pip install -U pip pyqt-distutils PyInstaller>=3.6"
-  - "%PYTHON%\\python.exe -m pip install -r requirements\\base.txt"
+  # Installing latest pip + dependencies
+  - "%PYTHON%\\python.exe -m pip install -U pip"
+  - "%PYTHON%\\python.exe -m pip install -r requirements\\build.txt"
   
   # Setup build environment for MSVC++
   - call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
