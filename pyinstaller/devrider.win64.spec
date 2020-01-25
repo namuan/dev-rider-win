@@ -37,4 +37,4 @@ exe = EXE(pyz,
           debug=False,
           strip=False,
           upx=False,
-          console=False , icon='..\\devrider\\resources\\icons\\devrider.ico')
+          console=False , icon='..\\devrider\\resources\\icons\\app.ico')
