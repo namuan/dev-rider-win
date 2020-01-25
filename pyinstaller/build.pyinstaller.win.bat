@@ -1,5 +1,3 @@
-@echo off
-
 setlocal
 
 REM ......................setup variables......................
@@ -19,6 +17,8 @@ if ["%ARCH%"]==["64"] (
     SET BINARCH=x64
     SET PYPATH=C:\Python36-x64
 )
+
+"%PYPATH%\python.exe" --version
 
 REM ......................get latest version number......................
 for /f "delims=" %%a in ('%PYPATH%\python.exe version.py') do @set APPVER=%%a
