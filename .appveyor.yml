@@ -39,7 +39,6 @@ install:
   - 7z x .\\devrider.tar.gz
   - 7z x .\\devrider.tar
   - move .\\dev-rider-%BUILD_VERSION% devrider
-  - dir
   - cd .\\devrider
   
   # Installing latest pip + dependencies
@@ -53,7 +52,8 @@ install:
   - cd C:\\projects\\devrider\\pyinstaller
   - call build.pyinstaller.win.bat 64 %PFX_PASSWORD%
   - 7z a -tzip devrider-%BUILD_VERSION%.zip dist\devrider.exe -mx0
-  # - appveyor PushArtifact dist\devrider.exe
+  - dir
+  - appveyor PushArtifact devrider-%BUILD_VERSION%.zip
   # - cd ..\InnoSetup\Output
   # - appveyor PushArtifact DevRider-0.1.0-setup-win64.exe
   # - appveyor exit
@@ -69,7 +69,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: qUFnrgAfsyPKWtP1gMPZHpv2KXLqQDosCrt3cZVG7ZlVpALn4yn7Y4WwWo4xhI3E
-  artifact: devrider-$(BUILD_VERSION).zip
+  artifact: devrider*.zip
   draft: false
   prerelease: false
   on:
